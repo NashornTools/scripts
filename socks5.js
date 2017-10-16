@@ -1,7 +1,7 @@
 load('https://cdn.rawgit.com/NashornTools/NnClassLoader/master/NnClassLoader.js');
 
 
-var L = new NnClassLoader({maven: ['com.github.mike10004:fengyouchao-sockslib:1.0.3']});
+var L = new NnClassLoader({maven: ['com.github.mike10004:fengyouchao-sockslib:1.0.3', 'org.slf4j:slf4j-simple:1.7.12']});
 
 
 var SocksProxyServerFactory = L.type('sockslib.server.SocksProxyServerFactory');
