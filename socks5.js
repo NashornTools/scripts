@@ -8,15 +8,14 @@ var SocksProxyServerFactory = L.type('sockslib.server.SocksProxyServerFactory');
 var User = L.type('sockslib.server.manager.User');
 
 
-var PORT = 1080;
-
-
-var users = [
-	new User('user', 'pass')
+var port = $ARG[0];
+var users = $ARG.length == 1 ? null : [
+	new User($ARG[1], $ARG[2])
 ];
 
-var socksProxyServer = SocksProxyServerFactory.newUsernamePasswordAuthenticationServer(PORT, users);
+var socksProxyServer = users == null ? SocksProxyServerFactory.newNoAuthenticationServer(port) :
+ 						SocksProxyServerFactory.newUsernamePasswordAuthenticationServer(port, users);
 
 socksProxyServer.start();
 
-print(' >>--> Started SOCKS5 proxy at port ' + PORT);
+print(' >>--> Started SOCKS5 proxy at port ' + port);
